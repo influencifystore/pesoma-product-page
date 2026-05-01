@@ -1,0 +1,24 @@
+{
+  "overview": "A premium product landing page for the PESOMA Under Sink Organizer, featuring interactive 3D product visualization, smooth animations, and a stunning design matching homeessentials.in's brand colors. Showcases the 2-tier expandable cabinet shelf organizer with full product details and a 3-year guarantee banner.",
+  "features": [
+    "Interactive 3D product model with rotation and zoom",
+    "Animated hero section with 3-year guarantee banner",
+    "Premium white/orange/dark color scheme",
+    "Framer Motion scroll animations and micro-interactions",
+    "3D-styled buttons with depth and hover effects",
+    "Responsive layout for mobile, tablet, and desktop",
+    "Product features grid with icons",
+    "Sticky header with Add to Cart CTA",
+    "Product specs and dimensions section"
+  ],
+  "category": "marketing",
+  "tags": [
+    "product-page",
+    "landing-page",
+    "3d",
+    "animations",
+    "ecommerce",
+    "premium"
+  ],
+  "last_updated": "2026-05-01T10:59:31.205Z"
+}

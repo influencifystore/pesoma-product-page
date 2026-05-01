@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: Fraunces, serif;
+    --font-body: General Sans, sans-serif;
+    --font-mono: Geist Mono, monospace;
+    --radius: 0.625rem;
+
+    --background: 0.99 0 0;
+    --foreground: 0.18 0 0;
+    --card: 1.0 0 0;
+    --card-foreground: 0.18 0 0;
+    --popover: 1.0 0 0;
+    --popover-foreground: 0.18 0 0;
+
+    --primary: 0.2 0.04 22;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.55 0.08 0;
+    --secondary-foreground: 0.18 0 0;
+    --muted: 0.94 0.005 25;
+    --muted-foreground: 0.52 0.02 25;
+
+    --accent: 0.62 0.22 29;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.9 0.005 25;
+    --input: 0.92 0 0;
+    --ring: 0.62 0.22 29;
+
+    --chart-1: 0.62 0.22 29;
+    --chart-2: 0.55 0.08 0;
+    --chart-3: 0.72 0.12 180;
+    --chart-4: 0.65 0.18 70;
+    --chart-5: 0.75 0.15 140;
+
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.18 0 0;
+    --sidebar-primary: 0.2 0.04 22;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.92 0 0;
+    --sidebar-accent-foreground: 0.18 0 0;
+    --sidebar-border: 0.88 0 0;
+    --sidebar-ring: 0.62 0.22 29;
+
+    /* Product-specific tokens */
+    --hero-bg: 0.14 0.03 22;
+    --hero-surface: 0.18 0.04 22;
+    --guarantee-bg: 0.62 0.22 29;
+    --shadow-3d: 0 6px 0 oklch(0.45 0.18 25), 0 8px 20px oklch(0 0 0 / 0.25);
+    --shadow-3d-hover: 0 2px 0 oklch(0.45 0.18 25), 0 4px 12px
+      oklch(0 0 0 / 0.3);
+    --shadow-card: 0 2px 16px oklch(0 0 0 / 0.07), 0 1px 4px oklch(0 0 0 / 0.05);
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@font-face {
+  font-family: Fraunces;
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: General Sans;
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Geist Mono;
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* 3D Button — dark primary */
+  .btn-3d {
+    position: relative;
+    transform: translateY(0);
+    box-shadow: var(--shadow-3d);
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s
+      cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-3d:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 oklch(0.38 0.16 25), 0 12px 28px oklch(0 0 0 / 0.28);
+  }
+  .btn-3d:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 oklch(0.38 0.16 25), 0 2px 8px oklch(0 0 0 / 0.2);
+  }
+
+  /* 3D Button — orange accent */
+  .btn-3d-orange {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      oklch(0.65 0.22 32) 0%,
+      oklch(0.58 0.24 26) 100%
+    );
+    color: oklch(var(--accent-foreground));
+    transform: translateY(0);
+    box-shadow: 0 6px 0 oklch(0.4 0.2 22), 0 8px 24px oklch(0.62 0.22 29 / 0.35);
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s
+      cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-3d-orange:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 oklch(0.38 0.2 22), 0 14px 32px
+      oklch(0.62 0.22 29 / 0.45);
+  }
+  .btn-3d-orange:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 oklch(0.38 0.2 22), 0 2px 10px
+      oklch(0.62 0.22 29 / 0.25);
+  }
+
+  /* Shine gradient for accent surfaces */
+  .gradient-shine {
+    background: linear-gradient(
+      135deg,
+      oklch(0.65 0.22 32) 0%,
+      oklch(0.56 0.24 24) 100%
+    );
+  }
+
+  /* Hero dark surface */
+  .bg-hero {
+    background: oklch(var(--hero-bg));
+  }
+  .bg-hero-surface {
+    background: oklch(var(--hero-surface));
+  }
+
+  /* Card with product-depth shadow */
+  .card-elevated {
+    box-shadow: var(--shadow-card);
+    border: 1px solid oklch(var(--border));
+  }
+
+  /* Guarantee badge glow */
+  .guarantee-glow {
+    box-shadow: 0 0 0 4px oklch(0.62 0.22 29 / 0.15), 0 8px 24px
+      oklch(0.62 0.22 29 / 0.3);
+  }
+
+  /* Text utilities */
+  .text-accent-orange {
+    color: oklch(var(--accent));
+  }
+  .text-hero-muted {
+    color: oklch(0.7 0.02 22);
+  }
+
+  /* Section alternating backgrounds */
+  .section-light {
+    background: oklch(var(--background));
+  }
+  .section-tinted {
+    background: oklch(0.97 0.005 30);
+  }
+  .section-dark {
+    background: oklch(var(--hero-bg));
+  }
+
+  /* Subtle border on dark sections */
+  .border-dark-subtle {
+    border-color: oklch(0.28 0.02 22);
+  }
+
+  /* Animations */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out both;
+  }
+  .animate-fade-in-down {
+    animation: fade-in-down 0.6s ease-out both;
+  }
+  .animate-scale-in {
+    animation: scale-in 0.5s ease-out both;
+  }
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Stagger delays */
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+  .delay-400 {
+    animation-delay: 0.4s;
+  }
+  .delay-500 {
+    animation-delay: 0.5s;
+  }
+  .delay-600 {
+    animation-delay: 0.6s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up,
+    .animate-fade-in-down,
+    .animate-scale-in,
+    .animate-float {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
